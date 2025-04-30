@@ -1,0 +1,47 @@
+# Node dependencies
+node_modules/
+.pnpm/
+.pnpm-debug.log*
+.yarn/
+.yarnrc.yml
+package-lock.json
+
+# Build outputs
+dist/
+build/
+server/dist/
+client/dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.*.local
+
+# VS Code settings
+.vscode/
+
+# System files
+.DS_Store
+
+# Coverage & reports
+coverage/
+.nyc_output/
+report.*.json
+
+# Misc caches
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_*/
+.fusebox/
+.stylelintcache
+.eslintcache
+
+# Render deploy artifacts (if any)
+render.yaml
