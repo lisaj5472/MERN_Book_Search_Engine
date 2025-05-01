@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import Auth from "./utils/auth"; // assumes this is where your token logic lives
+import Auth from "./utils/auth";
 
 // GraphQL endpoint
 const httpLink = createHttpLink({

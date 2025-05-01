@@ -2,6 +2,7 @@ import { AuthenticationError } from "../utils/auth";
 import User from "../models/User";
 import type { IResolvers } from "@graphql-tools/utils";
 import jwt from "jsonwebtoken";
+import { AnyConnectionBulkWriteModel } from "mongoose";
 
 const resolvers: IResolvers = {
   Query: {
@@ -29,18 +30,8 @@ const resolvers: IResolvers = {
         throw new AuthenticationError("Invalid credentials");
       }
 
-      const token = jwt.sign({ data: user }, process.env.JWT_SECRET_KEY || "", {
-        expiresIn: "1h",
-      });
-
-      return { token, user };
-    },
-
-    addUser: async (_parent: any, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      console.log("✅ New user created:", user);
       const token = jwt.sign(
-        { username: user.username, email: user.email, _id: user._id },
+        { data: { _id: user._id, email: user.email, username: user.username } },
         process.env.JWT_SECRET_KEY || "",
         {
           expiresIn: "1h",
@@ -50,7 +41,21 @@ const resolvers: IResolvers = {
       return { token, user };
     },
 
-    saveBook: async (_parent, { input }, context) => {
+    addUser: async (_parent: any, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      console.log("✅ New user created:", user);
+      const token = jwt.sign(
+        { data: { _id: user._id, email: user.email, username: user.username } },
+        process.env.JWT_SECRET_KEY || "",
+        {
+          expiresIn: "1h",
+        }
+      );
+
+      return { token, user };
+    },
+
+    saveBook: async (_parent: any, { input }, context) => {
       if (!context.user) {
         throw new AuthenticationError("You must be logged in");
       }
