@@ -42,6 +42,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem("id_token");
+    localStorage.removeItem("saved_books");
     window.location.assign("/");
   }
 }
