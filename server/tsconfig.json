@@ -1,13 +1,28 @@
 {
-  "extends": "../tsconfig.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "_version": "3.4.0",
+
   "compilerOptions": {
-    "module": "CommonJS",
-    /* Modules */
-    "rootDir": "src" /* Specify the root folder within your source files. */,
-    /* Emit */
-    "outDir": "dist" /* Specify an output folder for all emitted files. */
-    // "noEmitOnError": true /* Disable emitting files if any type checking errors are reported. */
-  },
-  "include": ["src/**/*"],
-  "typeRoots": ["./node_modules/@types", "./src/types"]
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  }
 }
