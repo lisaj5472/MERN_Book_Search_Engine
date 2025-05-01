@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import { Container, Col, Form, Button, Card, Row } from "react-bootstrap";
-
 import Auth from "../utils/auth";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { SAVE_BOOK } from "../utils/mutations";
 import { searchGoogleBooks } from "../utils/API";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 import type { Book } from "../models/Book";
 import type { GoogleAPIBook } from "../models/GoogleAPIBook";
-
-const [savedBookMutation] = useMutation(SAVE_BOOK);
 
 const SearchBooks = () => {
   const [searchedBooks, setSearchedBooks] = useState<Book[]>([]);
@@ -18,6 +15,7 @@ const SearchBooks = () => {
   const [savedBookIds, setSavedBookIds] = useState<string[]>(
     getSavedBookIds() || []
   );
+  const [savedBookMutation] = useMutation(SAVE_BOOK);
 
   useEffect(() => {
     return () => saveBookIds(savedBookIds);
@@ -137,7 +135,7 @@ const SearchBooks = () => {
                         {savedBookIds?.some(
                           (savedBookId: string) => savedBookId === book.bookId
                         )
-                          ? "This book has already been saved!"
+                          ? "Book saved!"
                           : "Save this Book!"}
                       </Button>
                     )}

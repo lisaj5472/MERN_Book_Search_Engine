@@ -36,12 +36,16 @@ const resolvers: IResolvers = {
       return { token, user };
     },
 
-    addUser: async (_parent, { username, email, password }) => {
+    addUser: async (_parent: any, { username, email, password }) => {
       const user = await User.create({ username, email, password });
-
-      const token = jwt.sign({ data: user }, process.env.JWT_SECRET_KEY || "", {
-        expiresIn: "1h",
-      });
+      console.log("✅ New user created:", user);
+      const token = jwt.sign(
+        { username: user.username, email: user.email, _id: user._id },
+        process.env.JWT_SECRET_KEY || "",
+        {
+          expiresIn: "1h",
+        }
+      );
 
       return { token, user };
     },

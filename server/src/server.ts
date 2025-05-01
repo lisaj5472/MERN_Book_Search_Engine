@@ -6,6 +6,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 import typeDefs from "./schemas/typeDefs.js";
 import resolvers from "./schemas/resolvers.js";
 import { authenticateToken } from "./utils/auth.js";
+import db from "./config/connection.js";
 
 const server = new ApolloServer({
   typeDefs,
@@ -14,6 +15,7 @@ const server = new ApolloServer({
 
 const startApolloServer = async () => {
   await server.start();
+  await db();
 
   const PORT = process.env.PORT || 3001;
   const app = express();

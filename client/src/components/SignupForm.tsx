@@ -42,9 +42,11 @@ const SignupForm = ({}: { handleModalClose: () => void }) => {
         },
       });
 
+      console.log("✅ Mutation result:", data);
+
       Auth.login(data.addUser.token);
     } catch (err) {
-      console.error(error);
+      console.error("Signup failed:", err.message || err);
       setShowAlert(true);
     }
 
