@@ -2,7 +2,6 @@ import { AuthenticationError } from "../utils/auth";
 import User from "../models/User";
 import type { IResolvers } from "@graphql-tools/utils";
 import jwt from "jsonwebtoken";
-import { AnyConnectionBulkWriteModel } from "mongoose";
 
 const resolvers: IResolvers = {
   Query: {
