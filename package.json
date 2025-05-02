@@ -1,20 +1,11 @@
 {
-  "name": "mern_book_search_engine",
+  "name": "mern-book-search",
   "version": "1.0.0",
-  "description": "Your assignment this week is emblematic of the fact that most modern websites are driven by two things: data and user demands. This shouldn't come as a surprise, as the ability to personalize user data is the cornerstone of real-world web development today. And as user demands evolve, applications need to be more performant.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lisaj5472/MERN_Book_Search_Engine.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lisaj5472/MERN_Book_Search_Engine/issues"
-  },
-  "homepage": "https://github.com/lisaj5472/MERN_Book_Search_Engine#readme"
+    "install-all": "npm install --prefix server && npm install --prefix client",
+    "client:build": "cd client && npm run build",
+    "server:build": "cd server && npm run build",
+    "build": "npm run client:build && npm run server:build",
+    "start": "node server/dist/server.js"
+  }
 }
