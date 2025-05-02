@@ -1,29 +1,20 @@
 {
-  "name": "mern-book-search",
+  "name": "mern_book_search_engine",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
+  "description": "Your assignment this week is emblematic of the fact that most modern websites are driven by two things: data and user demands. This shouldn't come as a surprise, as the ability to personalize user data is the cornerstone of real-world web development today. And as user demands evolve, applications need to be more performant.",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run client:build && npm run server",
-    "start:dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
-    "server": "cd server && npm start",
-    "server:dev": "cd server && npm run dev",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "client:build": "cd client && npm run build",
-    "client:dev": "cd client && npm run dev",
-    "build": "cd server && npm run build",
-    "seed": "cd server && npm run seed",
-    "render-build": "npm install && npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisaj5472/MERN_Book_Search_Engine.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@apollo/client": "^3.13.8",
-    "graphql": "^16.11.0"
+  "bugs": {
+    "url": "https://github.com/lisaj5472/MERN_Book_Search_Engine/issues"
   },
-  "devDependencies": {
-    "concurrently": "^9.1.2"
-  }
+  "homepage": "https://github.com/lisaj5472/MERN_Book_Search_Engine#readme"
 }
