@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm run build:client && npm run build:server",
     "build:client": "npm --prefix client run build",
-    "build:server": "tsc",
+    "build:server": "tsc --project server/tsconfig.json",
     "start": "npm --prefix server run start",
     "render-build": "npm install && npm run build"
   },
