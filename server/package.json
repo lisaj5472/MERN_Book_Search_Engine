@@ -6,12 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "ts-node src/server.ts",
-    "postinstall": "npm install --prefix server && npm install --prefix client",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "npm --prefix client run build",
-    "build:server": "npm --prefix server run build",
-    "start": "npm --prefix server run start",
-    "watch": "nodemon dist/server.js",
+    "build": "npxtsc",
+    "start": "npm run build && node dist/server.js --ignore client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
